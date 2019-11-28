@@ -1,47 +1,100 @@
 class Node{
     constructor(data){
-        this.data = data;
-        this.left = null;
-        this.right = null
+      this.data = data;
+      this.left = null;
+      this.right = null;
     }
-}
-
-class ArbolBinario{
-    constructor(){
-        this.root = null;
+  }
+  
+  class arbolBinario{
+    constructor()
+    {
+      this.root = null;
     }
-
-    insertar(data){
-        let nodo = new Node(data);
-        if(this.root == null){
-        this.root = nodo;
-        
-    }else{
-        this.insertarNodo(this.root, nodo)
-        }
-    }
-
-    insertarNodo(root, newNode){
-        if(newNode.data < root.data){
-            if(root.left == null){
-                root.left = newNode;
-            }else{
-                this.insertarNodo(root.left, newNode);
-            }
-        }else if(newNode.data > root.data){
-                if(root.right == null){
-                    root.right = newNode;
-                }
-        }else{
-            this.insertarNodo(root.right, newNode);
-        }
-    }
-
-    ObtenerRaiz(){
-        return this.root;
-    }
-
-
-    //Métodos de búsqueda
     
-}
+    insertar(data){
+      let nodo = new Node(data);
+      if(this.root == null){
+        this.root = nodo;
+      }else{
+        this.insertarNodo(this.root, nodo);
+      }
+    }
+    
+    insertarNodo(root, newNode)
+    {
+      if(newNode.data < root.data)
+      {
+        if(root.left == null)
+        {
+          root.left = newNode;
+        }else
+        {
+          this.insertarNodo(root.left, newNode);
+        }
+      }else if(newNode.data > root.data)
+      {
+        if(root.right == null)
+        {
+          root.right = newNode;
+        }else
+        {
+          this.insertarNodo(root.right, newNode);
+        }
+      }
+    }
+    
+    obtenerRaiz(){
+      return this.root; 
+    }
+    
+    //traversal
+    
+    preOrder(root){
+      if(root != null){
+        console.log(root.data); 
+        this.preOrder(root.left); 
+        this.preOrder(root.right);
+      }
+    }
+    
+    inOrder(root){
+      if(root != null){
+        this.inOrder(root.left); 
+        console.log(root.data); 
+        this.inOrder(root.right); 
+      }
+    }
+    
+    postOrder(root){
+      if(root != null){
+        this.postOrder(root.left);
+        this.postOrder(root.right); 
+        console.log(root.data); 
+      }
+    }
+    
+  }
+  
+  var a = new arbolBinario();
+  
+  a.insertar(20);
+  a.insertar(5);
+  a.insertar(1);
+  a.insertar(6);
+  a.insertar(4);
+  a.insertar(2);
+  
+  var root = a.obtenerRaiz();
+  
+  console.log('preOrder');
+  a.preOrder(root);
+  console.log('\n');
+  
+  console.log('inOrder');
+  a.inOrder(root);
+  console.log('\n');
+  
+  console.log('postOrder');
+  a.postOrder(root);
+  console.log('\n');
