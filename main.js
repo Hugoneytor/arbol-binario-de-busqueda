@@ -78,11 +78,11 @@ class Node{
   
   var a = new arbolBinario();
   
-  a.insertar(20);
+  a.insertar(4);
   a.insertar(5);
   a.insertar(1);
   a.insertar(6);
-  a.insertar(4);
+  a.insertar(3);
   a.insertar(2);
   
   var root = a.obtenerRaiz();
