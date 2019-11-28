@@ -7,8 +7,7 @@ class Node{
   }
   
   class arbolBinario{
-    constructor()
-    {
+    constructor(){
       this.root = null;
     }
     
@@ -21,24 +20,17 @@ class Node{
       }
     }
     
-    insertarNodo(root, newNode)
-    {
-      if(newNode.data < root.data)
-      {
-        if(root.left == null)
-        {
+    insertarNodo(root, newNode){
+      if(newNode.data < root.data){
+        if(root.left == null){
           root.left = newNode;
-        }else
-        {
+        }else{
           this.insertarNodo(root.left, newNode);
         }
-      }else if(newNode.data > root.data)
-      {
-        if(root.right == null)
-        {
+      }else if(newNode.data > root.data){
+        if(root.right == null){
           root.right = newNode;
-        }else
-        {
+        }else{
           this.insertarNodo(root.right, newNode);
         }
       }
