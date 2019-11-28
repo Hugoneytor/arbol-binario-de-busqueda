@@ -10,15 +10,19 @@ class Node{
     constructor(){
       this.root = null;
     }
-    
-    insertar(data){
+
+    // Creación del método de insertar nodo
+
+      insertar(data){
       let nodo = new Node(data);
       if(this.root == null){
         this.root = nodo;
       }else{
         this.insertarNodo(this.root, nodo);
-      }
+      } 
     }
+
+    // Creación del método recursivo para insertar un nodo
     
     insertarNodo(root, newNode){
       if(newNode.data < root.data){
@@ -35,12 +39,14 @@ class Node{
         }
       }
     }
+
+    //Obtener la raíz del árbol
     
     obtenerRaiz(){
       return this.root; 
     }
     
-    //traversal
+    //Métodos de búsqueda
     
     preOrder(root){
       if(root != null){
